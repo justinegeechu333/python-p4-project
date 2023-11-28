@@ -20,7 +20,7 @@ class Movie(db.Model, SerializerMixin):
     serialize_rules=('-purchases.movie',)
     id = db.Column (db.Integer, primary_key = True)
     title = db.Column(db.String)
-    time = db.Column(db.Integer)
+    time = db.Column(db.String)
     details = db.Column(db.String)
     ticket_price = db.Column(db.Integer)
     image = db.Column(db.String)

@@ -15,14 +15,14 @@ from flask import jsonify
 class Movies(Resource):
     def get(self):
         movies = [movie.to_dict() for movie in Movie.query.all()]
-        return make_response(movies, 200)
+        return make_response(jsonify(movies), 200)
 
     def post(self):
         params = request.json
-        new_movie = Movie(title=params['title'], time= params['time'], details= params['details'], ticket_price= params['ticket_price'], image= params['image'])
-        db.session.add(new_movie)
+        new_customer = Customer(name=params['name'], phonenumber= params['phonenumber'])
+        db.session.add(new_customer)
         db.session.commit()
-        return make_response(new_movie.to_dict(), 201)
+        return make_response(jsonify(new_customer), 201)
     
 api.add_resource(Movies, '/movies')
 

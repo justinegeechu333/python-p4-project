@@ -1,44 +1,52 @@
 {
-  "movies": [
-    {
-      "id": 3,
-      "title": "Garfield The Movie",
-      "time": "120 minutes",
-      "details": "Garfield is about to go on a wild outdoor adventure. After an unexpected reunion with his long-lost father - the cat Vic - Garfield and Odie are forced to abandon their pampered life to join Vic in a hilarious, high-stakes heist.",
-      "ticket_price": "$15.00",
-      "image": "https://musicart.xboxlive.com/7/2d8f1600-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080"
-    },
-    {
-      "id": 4,
-      "title": "The Cat In The Hat",
-      "time": "105 minutes",
-      "details": "Two bored children have their lives turned upside down when a talking cat comes to visit them.",
-      "ticket_price": "$15.00",
-      "image": "https://m.media-amazon.com/images/M/MV5BMTI5MDU3MTYyMF5BMl5BanBnXkFtZTYwODgyODc3._V1_.jpg"
-    },
-    {
-      "id": 5,
-      "title": "Tom and Jerry",
-      "time": "204 minutes",
-      "details": "A chaotic battle ensues between Jerry Mouse, who has taken refuge in the Royal Gate Hotel, and Tom Cat, who is hired to drive him away before the day of a big wedding arrives.",
-      "ticket_price": "$15.00",
-      "image": "https://m.media-amazon.com/images/M/MV5BYzUwYWE5ZDAtYWMxZi00NmQ4LTkyMWMtMjk2MzQ5YzI1NDhmXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg"
-    },
-    {
-      "id": 6,
-      "title": "The Secret Lives of Pets",
-      "time": "160 minutes",
-      "details": "The quiet life of a terrier named Max is upended when his owner takes in Duke, a stray whom Max instantly dislikes.",
-      "ticket_price": "$15.00",
-      "image": "https://m.media-amazon.com/images/M/MV5BMjIzMzA1OTkzNV5BMl5BanBnXkFtZTgwODE3MjM4NzE@._V1_.jpg"
-    },
-    {
-      "id": 7,
-      "title": "Cats",
-      "time": "204 minutes",
-      "details": "A cat named Blanket lives in the city with his son, Cape. One day, Cape decides to leave home and embarks on an adventure to find the legendary cat's paradise. To find his son, Blanket must overcome his fear and reconcile with his past.",
-      "ticket_price": "$15.00",
-      "image": "https://m.media-amazon.com/images/M/MV5BMjA5YTFlNzYtZmU5Ni00Y2Y2LWFmMTktNGFlZjE0MWIwMDJmXkEyXkFqcGdeQXVyMjMwODE4ODI@._V1_.jpg"
-    }
-  ]
+    "movies": [
+        {
+            "id": 1,
+            "title": "The Lion King",
+            "time": "130 minutes",
+            "details": "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.",
+            "ticket_price": "$15.00",
+            "image": "https://images.moviesanywhere.com/c07276e9473360730fdbc94baebc4236/4692c964-61ba-486d-9c77-939dbfba2f07.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Garfield The Movie",
+            "time": "120 minutes",
+            "details": "Garfield is about to go on a wild outdoor adventure. After an unexpected reunion with his long-lost father - the cat Vic - Garfield and Odie are forced to abandon their pampered life to join Vic in a hilarious, high-stakes heist.",
+            "ticket_price": "$15.00",
+            "image": "https://musicart.xboxlive.com/7/2d8f1600-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080"
+        },
+        {
+            "id": 4,
+            "title": "The Cat In The Hat",
+            "time": "105 minutes",
+            "details": "Two bored children have their lives turned upside down when a talking cat comes to visit them.",
+            "ticket_price": "$15.00",
+            "image": "https://m.media-amazon.com/images/M/MV5BMTI5MDU3MTYyMF5BMl5BanBnXkFtZTYwODgyODc3._V1_.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Tom and Jerry",
+            "time": "204 minutes",
+            "details": "A chaotic battle ensues between Jerry Mouse, who has taken refuge in the Royal Gate Hotel, and Tom Cat, who is hired to drive him away before the day of a big wedding arrives.",
+            "ticket_price": "$15.00",
+            "image": "https://m.media-amazon.com/images/M/MV5BYzUwYWE5ZDAtYWMxZi00NmQ4LTkyMWMtMjk2MzQ5YzI1NDhmXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg"
+        },
+        {
+            "id": 6,
+            "title": "The Secret Lives of Pets",
+            "time": "160 minutes",
+            "details": "The quiet life of a terrier named Max is upended when his owner takes in Duke, a stray whom Max instantly dislikes.",
+            "ticket_price": "$15.00",
+            "image": "https://m.media-amazon.com/images/M/MV5BMjIzMzA1OTkzNV5BMl5BanBnXkFtZTgwODE3MjM4NzE@._V1_.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Cats",
+            "time": "204 minutes",
+            "details": "A cat named Blanket lives in the city with his son, Cape. One day, Cape decides to leave home and embarks on an adventure to find the legendary cat's paradise. To find his son, Blanket must overcome his fear and reconcile with his past.",
+            "ticket_price": "$15.00",
+            "image": "https://m.media-amazon.com/images/M/MV5BMjA5YTFlNzYtZmU5Ni00Y2Y2LWFmMTktNGFlZjE0MWIwMDJmXkEyXkFqcGdeQXVyMjMwODE4ODI@._V1_.jpg"
+        }
+    ]
 }
