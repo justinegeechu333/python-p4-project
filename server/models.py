@@ -9,7 +9,7 @@ class Customer(db.Model, SerializerMixin):
     name = db.Column(db.String)
     phonenumber = db.Column(db.String)
 
-    purchases = db.relationship('Purchase', back_populates = 'movie', cascade = 'all, delete-orphan')
+    purchases = db.relationship('Purchase', back_populates = 'customer', cascade = 'all, delete-orphan')
     movies = association_proxy('Purchase', 'movie')
 
 

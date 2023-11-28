@@ -8,19 +8,23 @@ from faker import Faker
 
 # Local imports
 from app import app
-from models import db
+from models import db, Movie, Customer, Purchase
+
 
 if __name__ == '__main__':
     fake = Faker()
     with app.app_context():
         print("Starting seed...")
         
+        Purchase.query.delete()
         Movie.query.delete()
+        Customer.query.delete()
+
 
         movies = []
 
         movies.append(Movie(title='The Hunger Games: Ballad of Songbirds & Snakes', time= '7:30PM', details= 'Years before he becomes the tyrannical president of Panem, 18-year-old Coriolanus Snow remains the last hope for his fading lineage. With the 10th annual Hunger Games fast approaching, the young Snow becomes alarmed when he is assigned to mentor Lucy Gray Baird from District 12. Uniting their instincts for showmanship and political savvy, they race against time to ultimately reveal who\'s a songbird and who\'s a snake.', ticket_price = 14, image = 'https://regalcdn.azureedge.net/REG/HungerGamesBalladofSongbirdsSnakesThe/HO00013027/TV_SmallPosterImage/20230927-134228841.png'))
-        movies.append(Movie(title = 'Five Nights at Freddy\'s'), time = '5:00PM', details = 'A troubled security guard begins working at Freddy Fazbear\'s Pizza. While spending his first night on the job, he realizes the night shift at Freddy\'s won\'t be so easy to make it through.', ticket_price = 12, image = 'https://regalcdn.azureedge.net/REG/FiveNightsatFreddys/HO00014314/TV_SmallPosterImage/20230517-074301474.jpg')
+        movies.append(Movie(title = 'Five Nights at Freddy\'s', time = '5:00PM', details = 'A troubled security guard begins working at Freddy Fazbear\'s Pizza. While spending his first night on the job, he realizes the night shift at Freddy\'s won\'t be so easy to make it through.', ticket_price = 12, image = 'https://regalcdn.azureedge.net/REG/FiveNightsatFreddys/HO00014314/TV_SmallPosterImage/20230517-074301474.jpg'))
         movies.append(Movie(title = 'Wish', time = '2:00PM', details = 'In “Wish,” Asha, a sharp-witted idealist, makes a wish so powerful that it is answered by a cosmic force—a little ball of boundless energy called Star. Together, Asha and Star confront a most formidable foe—the ruler of Rosas, King Magnifico—to save her community and prove that when the will of one courageous human connects with the magic of the stars, wondrous things can happen.', ticket_price = 16, image = 'https://regalcdn.azureedge.net/REG/Wish/HO00014431/TV_SmallPosterImage/20230928-092917528.png'))
         movies.append(Movie(title = 'The Marvels', time = '4:30PM', details = 'Carol Danvers aka Captain Marvel has reclaimed her identity from the tyrannical Kree and taken revenge on the Supreme Intelligence. But unintended consequences see Carol shouldering the burden of a destabilized universe. When her duties send her to an anomalous wormhole linked to a Kree revolutionary, her powers become entangled with that of Jersey City super-fan, Kamala Khan aka Ms. Marvel, and Carol\'s estranged niece, now S.A.B.E.R. astronaut Captain Monica Rambeau. Together, this unlikely trio must team-up and learn to work in concert to save the universe as “The Marvels.”', ticket_price = 17, image = 'https://regalcdn.azureedge.net/REG/MarvelsThe/HO00010980/TV_SmallPosterImage/20230721-072522533.jpg' ))
         movies.append(Movie(title = 'Saving Private Ryan 25th Anniversary', time = '9:00PM', details = 'Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.', ticket_price = 15, image = 'https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_FMjpg_UX1000_.jpg'))
