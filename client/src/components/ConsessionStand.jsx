@@ -1,9 +1,9 @@
 import React from "react";
-import "./Home.css";
+import "./ConsessionStand.css";
 
-export function Home() {
+export function ConsessionStand() {
   return (
-    <div className="home">
+    <div className="concession stand">
       <div>
         {" "}
         <img

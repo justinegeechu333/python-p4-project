@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route, NavLink, Routes } from "react-router-dom";
 import { Home } from "./Home";
 import { Movies } from "./Movies";
-import { Food } from "./Food";
+import { ConsessionStand } from "./ConsessionStand";
+import "./App.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -11,18 +12,19 @@ function App() {
       .then((res) => res.json())
       .then((data) => setMovies(data));
   }, []);
+
   return (
-    <div>
-      <nav className="">
+    <div className="app">
+      <nav>
         <ul className="navigate">
           <li>
-            <NavLink to="/Home">Home</NavLink>
+            <NavLink to="/home">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/Movies">Movies</NavLink>
+            <NavLink to="/movies">Movies</NavLink>
           </li>
           <li>
-            <NavLink to="/Food">Food</NavLink>
+            <NavLink to="/consessionstand">Consession Stand</NavLink>
           </li>
         </ul>
       </nav>
@@ -30,8 +32,8 @@ function App() {
         <Routes path="/">
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
-          <Route path="movies" element={<Movies />} />
-          <Route path="food" element={<Food />} />
+          <Route path="movies" element={<Movies movies={movies} />} />
+          <Route path="consessionstand" element={<ConsessionStand />} />
         </Routes>
       </main>
     </div>
