@@ -50,9 +50,9 @@ export default function Edit({ isNew = false, movies = [], setMovies }) {
       },
       body: JSON.stringify({
         title: e.target.title.value,
-        time: e.target.time.value,
+        time: Number(e.target.time.value),
         details: e.target.details.value,
-        ticket_price: e.target.ticket_price.value,
+        ticket_price: Number(e.target.ticket_price.value),
         image: e.target.image.value,
       }),
     })
@@ -74,6 +74,9 @@ export default function Edit({ isNew = false, movies = [], setMovies }) {
             });
           }
         });
+      })
+      .then((_) => {
+        navigate("/admin/movies");
       });
   };
 

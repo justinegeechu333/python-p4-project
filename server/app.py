@@ -15,14 +15,14 @@ from flask import jsonify
 class Movies(Resource):
     def get(self):
         movies = [movie.to_dict() for movie in Movie.query.all()]
-        return make_response(jsonify(movies), 200)
+        return make_response(movies.to_dict(), 200)
 
     def post(self):
         params = request.json
         new_movie = Movie(title=params['title'], time= params['time'], details= params['details'], ticket_price= params['ticket_price'], image= params['image'])
         db.session.add(new_movie)
         db.session.commit()
-        return make_response(jsonify(new_movie), 201)
+        return make_response(new_movie.to_dict(), 201)
     
 api.add_resource(Movies, '/movies')
 
@@ -32,12 +32,12 @@ class MoviesById(Resource):
         movie = Movie.query.get(id)
         if not movie:
             return make_response({'error': 'Movie not found'}, 404)
-        return make_response(jsonify(movie.to_dict()), 200)
+        return make_response(movie.to_dict(), 200)
     
     def delete(self, id):
         movie = Movie.query.get(id)
         if not movie:
-            return make_response(jsonify({'error': 'Movie not found'}), 404)
+            return make_response({'error': 'Movie not found'}, 404)
         db.session.delete(movie)
         db.session.commit()
         return make_response({''}, 204)
@@ -50,14 +50,14 @@ class MoviesById(Resource):
         for attr in params:
             setattr(movie, attr, params[attr])
         db.session.commit()
-        return make_response(jsonify(movie.to_dict()), 200)
+        return make_response(movie.to_dict(), 200)
     
     def post(self, id): 
         params = request.json
         new_movie = Movie(title=params['title'], time= params['time'], details= params['details'], ticket_price= params['ticket_price'], image= params['image'])
         db.session.add(new_movie)
         db.session.commit()
-        return make_response(jsonify(new_movie.to_dict()), 201)
+        return make_response(new_movie.to_dict(), 201)
 
 api.add_resource(MoviesById, '/movies/<int:id>')
 
