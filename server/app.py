@@ -15,7 +15,7 @@ from flask import jsonify
 class Movies(Resource):
     def get(self):
         movies = [movie.to_dict() for movie in Movie.query.all()]
-        return make_response(movies.to_dict(), 200)
+        return make_response(movies, 200)
 
     def post(self):
         params = request.json
@@ -54,7 +54,11 @@ class MoviesById(Resource):
     
     def post(self, id): 
         params = request.json
-        new_movie = Movie(title=params['title'], time= params['time'], details= params['details'], ticket_price= params['ticket_price'], image= params['image'])
+        new_customer = Customer(name=params['name'], phonenumber=params['phonenumber'])
+        db.session.add(new_customer)
+        db.session.commit()
+        
+        new_movie = Purchase(customer_id=new_customer.id, movie_id=id)
         db.session.add(new_movie)
         db.session.commit()
         return make_response(new_movie.to_dict(), 201)
