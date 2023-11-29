@@ -2,10 +2,12 @@ nav {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-
+    > .gap {
+        flex-grow: 1;
+    }
     > ul {
         display: flex;
-        flex-shrink: 1;
+        flex-grow: 0;
     }
     & .active {
         background: rgb(9, 75, 75);
