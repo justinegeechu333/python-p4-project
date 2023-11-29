@@ -4,6 +4,8 @@ import { Home } from "./Home";
 import { Movies } from "./Movies";
 import { ConsessionStand } from "./ConsessionStand";
 import "./App.css";
+import Edit from "./Edit";
+import Purchase from "./Purchase";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -26,6 +28,9 @@ function App() {
           <li>
             <NavLink to="/consessionstand">Consession Stand</NavLink>
           </li>
+          <li>
+            <NavLink to="/admin/movies">Login</NavLink>
+          </li>
         </ul>
       </nav>
       <main>
@@ -34,6 +39,19 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="movies" element={<Movies movies={movies} />} />
           <Route path="consessionstand" element={<ConsessionStand />} />
+          <Route
+            path="admin/movies"
+            element={<Movies movies={movies} isAdmin={true} />}
+          />
+          <Route
+            path="admin/edit/:id"
+            element={<Edit movies={movies} setMovies={setMovies} />}
+          />
+          <Route
+            path="admin/new"
+            element={<Edit isNew={true} setMovies={setMovies} />}
+          />
+          <Route path="purchase/:id" element={<Purchase movies={movies} />} />
         </Routes>
       </main>
     </div>

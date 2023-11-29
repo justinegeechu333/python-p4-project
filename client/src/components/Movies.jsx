@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "semantic-ui-react";
+import { useNavigate } from "react-router-dom";
 import "./Movies.css";
 
 export const Movies = ({ isAdmin = false, movies = [] }) => {
   const [selectedId, setSelectedId] = useState(-1);
+  useEffect(() => {
+    if (movies.length > 0) setSelectedId(movies[0].id);
+  }, [movies]);
   const selectedMovie =
     selectedId < 0 ? null : movies.find((m) => m.id === selectedId);
-  console.log("movies:", movies);
+  const navigate = useNavigate();
   return (
     <div className="movies_page">
       <Table columns={1} celled>
@@ -18,7 +22,7 @@ export const Movies = ({ isAdmin = false, movies = [] }) => {
 
         <Table.Body>
           {movies.map((m) => (
-            <Table.Row>
+            <Table.Row key={m.id}>
               <Table.Cell onClick={() => setSelectedId(m.id)}>
                 {m.title}
               </Table.Cell>
@@ -28,7 +32,9 @@ export const Movies = ({ isAdmin = false, movies = [] }) => {
         {isAdmin && (
           <Table.Footer>
             <Table.Row>
-              <Table.HeaderCell>3 People</Table.HeaderCell>
+              <Table.HeaderCell>
+                <button onClick={() => navigate(`/admin/new`)}>new</button>
+              </Table.HeaderCell>
             </Table.Row>
           </Table.Footer>
         )}
@@ -47,11 +53,23 @@ export const Movies = ({ isAdmin = false, movies = [] }) => {
           <>
             <h2>{selectedMovie.title}</h2>
             <img src={selectedMovie.image} alt={selectedMovie.title} />
-            <p>{selectedMovie.detail}</p>
+            <p>{selectedMovie.details}</p>
             <p>{selectedMovie.time}</p>
-            <p>{selectedMovie.price}</p>
+            <p>{selectedMovie.ticket_price}</p>
             <div className="buttons">
-              <button>Purchase</button>
+              {isAdmin ? (
+                <button
+                  onClick={() => navigate(`/admin/edit/${selectedMovie.id}`)}
+                >
+                  Edit
+                </button>
+              ) : (
+                <button
+                  onClick={() => navigate(`/purchase/${selectedMovie.id}`)}
+                >
+                  Purchase
+                </button>
+              )}
             </div>
           </>
         )}
