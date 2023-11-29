@@ -1,22 +1,31 @@
 .app {
-  > * {
-    max-width: 800px;
-    margin-inline: auto;
-  }
-  > nav {
-    background: rgb(246, 248, 186);
-    padding-block: 1rem;
-    > ul {
-      display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      > li {
-        list-style: none;
-      }
+    > * {
+        max-width: 800px;
+        margin-inline: auto;
     }
-  }
+    > nav {
+        padding-block: 1rem;
+        position: relative;
+        > ul {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            > li {
+                list-style: none;
+            }
+        }
+    }
 
-  > main {
-    padding-block: 2rem;
-  }
+    > nav::after {
+        background: rgb(246, 248, 186);
+        content: "";
+        position: absolute;
+        inset-block: 0;
+        inset-inline: -2000px;
+        z-index: -1;
+    }
+
+    > main {
+        padding-block: 2rem;
+    }
 }

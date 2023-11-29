@@ -1,12 +1,31 @@
-.consessionStand {
-  height: 80vh;
-  display: grid;
-  place-items: center;
-  font-size: 6rem;
-  color: rgb(255, 0, 0);
+/* .consessionStand {
+    height: 80vh;
+    display: grid;
+    place-items: center;
+    font-size: 6rem;
+    color: rgb(255, 0, 0);
 }
 
 .background_img {
-  width: 200px;
-  height: 200px;
+    width: 200px;
+    height: 200px;
+} */
+
+.consessionStand .ui.card > .image > img {
+    padding: 2rem;
+    background-color: white;
+    aspect-ratio: 1;
+}
+
+.consessionStand .ui.card {
+    border: rgb(10, 63, 65) 1px solid;
+}
+
+.consessionStand .ui.card > .content {
+    border-top-color: rgb(10, 63, 65);
+}
+
+.consessionStand .ui.huge.header {
+    color: rgb(10, 63, 65);
+    text-align: center;
 }

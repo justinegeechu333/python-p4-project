@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useFormik } from "formik";
+import { Button, Checkbox, Form } from "semantic-ui-react";
 
 const validate = (values) => {
     const errors = {};
@@ -51,21 +52,21 @@ export default function Purchase({ movies = [], setMovies }) {
 
     return (
         <div>
-            <form onSubmit={formik.handleSubmit}>
-                <div>
-                    <label>title</label>
-                    <span>{selectedMovie.title ?? ""}</span>
-                </div>
-                <div>
-                    <label>time</label>
-                    <span>{selectedMovie.time ?? ""}</span>
-                </div>
+            <div>
+                <label>title</label>
+                <span>{selectedMovie.title ?? ""}</span>
+            </div>
+            <div>
+                <label>time</label>
+                <span>{selectedMovie.time ?? ""} minutes</span>
+            </div>
 
-                <div>
-                    <label>ticket_price</label>
-                    <span>{selectedMovie.ticket_price ?? ""}</span>
-                </div>
-                <div>
+            <div>
+                <label>ticket_price</label>
+                <span>${selectedMovie.ticket_price ?? ""}</span>
+            </div>
+            <Form onSubmit={formik.handleSubmit}>
+                <Form.Field>
                     <label>name</label>
                     <input
                         name="name"
@@ -75,8 +76,8 @@ export default function Purchase({ movies = [], setMovies }) {
                     {formik.errors.name ? (
                         <div>{formik.errors.name}</div>
                     ) : null}
-                </div>
-                <div>
+                </Form.Field>
+                <Form.Field>
                     <label>phone number</label>
                     <input
                         name="phonenumber"
@@ -86,11 +87,11 @@ export default function Purchase({ movies = [], setMovies }) {
                     {formik.errors.phonenumber ? (
                         <div>{formik.errors.phonenumber}</div>
                     ) : null}
-                </div>
+                </Form.Field>
                 <div>
-                    <button type="submit">Submit</button>
+                    <Button type="submit">Submit</Button>
                 </div>
-            </form>
+            </Form>
         </div>
     );
 }

@@ -1,0 +1,29 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    > ul {
+        display: flex;
+        flex-shrink: 1;
+    }
+    & .active {
+        background: rgb(9, 75, 75);
+        color: white;
+        border-radius: 2rem;
+    }
+
+    & a {
+        padding-inline: 0.5rem;
+        display: inline-block;
+        transition: all 0.5s linear;
+    }
+}
+
+.logo {
+    width: 5rem;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
