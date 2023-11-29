@@ -22,9 +22,10 @@ class Movies(Resource):
         new_movie = Movie(title=params['title'], time= params['time'], details= params['details'], ticket_price= params['ticket_price'], image= params['image'])
         db.session.add(new_movie)
         db.session.commit()
-        return
-
+        return make_response(jsonify(new_movie), 201)
+    
 api.add_resource(Movies, '/movies')
+
 # Views go here!
 class MoviesById(Resource):
     def get(self, id):
@@ -56,7 +57,6 @@ class MoviesById(Resource):
         new_movie = Movie(title=params['title'], time= params['time'], details= params['details'], ticket_price= params['ticket_price'], image= params['image'])
         db.session.add(new_movie)
         db.session.commit()
-      
         return make_response(jsonify(new_movie.to_dict()), 201)
 
 api.add_resource(MoviesById, '/movies/<int:id>')
