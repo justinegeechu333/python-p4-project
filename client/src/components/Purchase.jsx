@@ -1,60 +1,96 @@
 import { useParams } from "react-router-dom";
+import { useFormik } from "formik";
+
+const validate = (values) => {
+    const errors = {};
+    if (!values.name) {
+        errors.name = "Required";
+    } else if (values.name.length < 2) {
+        errors.name = "Must be at least 2 characters or more";
+    }
+
+    if (!values.phonenumber) {
+        errors.phonenumber = "Required";
+    } else if (
+        !/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/i.test(values.phonenumber)
+    ) {
+        errors.phonenumber = "Invalid phone number";
+    }
+
+    return errors;
+};
 
 export default function Purchase({ movies = [], setMovies }) {
-  const { id } = useParams() ?? {};
-  const selectedMovie = id
-    ? movies.find((movie) => movie.id === Number(id))
-    : {};
+    const { id } = useParams() ?? {};
+    const selectedMovie = id
+        ? movies.find((movie) => movie.id === Number(id))
+        : {};
 
-  return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-
-          fetch(`http://localhost:3000/movies/${id}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name: e.target.name.value,
-              phonenumber: e.target.phonenumber.value,
-            }),
-          })
-            .then((res) => {
-              return res.json();
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            phone: "",
+        },
+        validate,
+        onSubmit: (values) => {
+            fetch(`http://localhost:3000/movies/${id}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
             })
-            .then((data) => {
-              console.log("data", data);
-            });
-        }}
-      >
-        <div>
-          <label>title</label>
-          <span>{selectedMovie.title ?? ""}</span>
-        </div>
-        <div>
-          <label>time</label>
-          <span>{selectedMovie.time ?? ""}</span>
-        </div>
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
+                    console.log("data", data);
+                });
+        },
+    });
 
+    return (
         <div>
-          <label>ticket_price</label>
-          <span>{selectedMovie.ticket_price ?? ""}</span>
+            <form onSubmit={formik.handleSubmit}>
+                <div>
+                    <label>title</label>
+                    <span>{selectedMovie.title ?? ""}</span>
+                </div>
+                <div>
+                    <label>time</label>
+                    <span>{selectedMovie.time ?? ""}</span>
+                </div>
+
+                <div>
+                    <label>ticket_price</label>
+                    <span>{selectedMovie.ticket_price ?? ""}</span>
+                </div>
+                <div>
+                    <label>name</label>
+                    <input
+                        name="name"
+                        onChange={formik.handleChange}
+                        value={formik.values.name}
+                    ></input>
+                    {formik.errors.name ? (
+                        <div>{formik.errors.name}</div>
+                    ) : null}
+                </div>
+                <div>
+                    <label>phone number</label>
+                    <input
+                        name="phonenumber"
+                        onChange={formik.handleChange}
+                        value={formik.values.phonenumber}
+                    ></input>
+                    {formik.errors.phonenumber ? (
+                        <div>{formik.errors.phonenumber}</div>
+                    ) : null}
+                </div>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
         </div>
-        <div>
-          <label>name</label>
-          <input name="name"></input>
-        </div>
-        <div>
-          <label>phone number</label>
-          <input name="phonenumber"></input>
-        </div>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  );
+    );
 }
