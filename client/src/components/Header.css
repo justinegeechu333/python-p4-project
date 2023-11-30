@@ -1,14 +1,46 @@
 nav {
+    padding-block: 1rem;
+    position: relative;
+    > ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        > li {
+            list-style: none;
+        }
+    }
+}
+
+nav::after {
+    background: rgb(30 30 25);
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline: -2000px;
+    z-index: -1;
+}
+
+nav {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-
+    > .gap {
+        flex-grow: 1;
+        display: flex;
+        align-items: end;
+        font-size: x-large;
+        line-height: 2rem;
+        color: rgb(143, 20, 20);
+        font-weight: bolder;
+    }
     > ul {
         display: flex;
-        flex-shrink: 1;
+        flex-grow: 0;
+        margin-top: auto;
+        margin-bottom: 0;
     }
     & .active {
-        background: rgb(9, 75, 75);
+        background: rgb(18 105 140);
         color: white;
         border-radius: 2rem;
     }
@@ -17,6 +49,8 @@ nav {
         padding-inline: 0.5rem;
         display: inline-block;
         transition: all 0.5s linear;
+        font-size: small;
+        color: red;
     }
 }
 

@@ -53,16 +53,16 @@ export default function Purchase({ movies = [], setMovies }) {
     return (
         <div>
             <div>
-                <label>title</label>
+                <label>Title: </label>
                 <span>{selectedMovie.title ?? ""}</span>
             </div>
             <div>
-                <label>time</label>
+                <label>Time: </label>
                 <span>{selectedMovie.time ?? ""} minutes</span>
             </div>
 
             <div>
-                <label>ticket_price</label>
+                <label>Price: </label>
                 <span>${selectedMovie.ticket_price ?? ""}</span>
             </div>
             <Form onSubmit={formik.handleSubmit}>

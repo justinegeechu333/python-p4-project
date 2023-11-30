@@ -1,4 +1,6 @@
 .movies_page {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
     display: flex;
     flex-direction: row;
     > table {
@@ -9,9 +11,9 @@
                 transition: all 0.5s linear;
             }
             & tr:hover {
-                background-color: bisque;
+                background-color: rgb(30 30 25);
                 font-weight: bold;
-                color: rgb(123, 68, 0);
+                color: white;
             }
         }
         & ::after {

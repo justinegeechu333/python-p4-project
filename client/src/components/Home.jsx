@@ -1,18 +1,31 @@
 import React from "react";
 import "./Home.css";
+import { Image, Item } from "semantic-ui-react";
+import socialMedia from "./social-media.png";
 
 export function Home() {
-  return (
-    <div className="home">
-      <div>
-        {" "}
-        <img
-          className="background_img"
-          alt="background"
-          src="data:image/jpeg;base64,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"
-        />
-      </div>
-      Welcome to MeowTown Cinema
-    </div>
-  );
+    return (
+        <>
+            <div className="home">
+                <div className="image-container">
+                    <Image
+                        src="https://i0.wp.com/www.courageouschristianfather.com/wp-content/uploads/2018/06/cats-dogs-3d-movie-national-pets-in-film-day-2583851.jpg?w=870&ssl=1"
+                        fluid
+                    />
+                </div>
+                <Item.Content className="info">
+                    <Item.Header as="a" className="cinema-name">
+                        MeowTown Cinema
+                    </Item.Header>
+                    <Item.Meta>1-800-Meow-Town - Customer Service</Item.Meta>
+                    <Item.Meta>5555 Meow Avenue</Item.Meta>
+                    <Item.Meta>Meow City, Meow State Meow Zip Code</Item.Meta>
+                    <Item.Description className="social-media">
+                        <Image src={socialMedia} />
+                    </Item.Description>
+                    <Item.Extra>© 2023 Meow Entertainments</Item.Extra>
+                </Item.Content>
+            </div>
+        </>
+    );
 }
