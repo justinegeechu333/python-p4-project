@@ -1,12 +1,69 @@
-.home {
-  height: 80vh;
-  display: grid;
-  place-items: center;
-  font-size: 6rem;
-  color: rgb(255, 0, 0);
-}
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Vina+Sans&display=swap");
 
+.home {
+    height: 80vh;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    & .info {
+        font-size: large;
+    }
+    > .image-container {
+        height: 370px;
+        width: 100%;
+        position: relative;
+        > .ui.fluid.image {
+            position: absolute;
+            max-width: unset;
+            width: 100vw;
+            left: calc((100vw - 100%) / 2 * -1);
+            height: 370px;
+            object-fit: cover;
+            object-position: bottom;
+        }
+    }
+
+    & .cinema-name {
+        /* position: absolute; */
+        /* z-index: 2; */
+        /* background-color: rgba(0, 0, 0, 0.278); */
+        font-size: 5rem;
+        line-height: 5rem;
+        inset-inline: 0;
+        /* height: 10rem; */
+        /* bottom: -5rem; */
+        /* width: 100vw; */
+        /* left: calc((100vw - 100%) / 2 * -1); */
+        /* padding-left: calc((100vw - 100%) / 2); */
+        font-family: "Abril Fatface", serif;
+        font-family: "Vina Sans", sans-serif;
+        color: #8e1d1d;
+        text-shadow: 2px 2px 3px BLACK;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    & .social-media {
+        > .ui.image {
+            max-width: 30%;
+        }
+    }
+}
+.home::after {
+    content: "";
+    position: absolute;
+    left: calc((100vw - 100%) / 2 * -1);
+    width: 100vw;
+    height: 100vh;
+    background-color: #4f5459;
+    z-index: -1;
+    top: 0;
+}
 .background_img {
-  width: 200px;
-  height: 200px;
+    width: 200px;
+    height: 200px;
 }

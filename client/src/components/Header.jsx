@@ -9,7 +9,7 @@ const Header = () => {
                 alt="alt"
                 className="logo"
             />
-            <div className="gap" />
+            <div className="gap"> MeowTown Cinema</div>
             <ul className="navigate">
                 <li>
                     <NavLink to="/home">Home</NavLink>

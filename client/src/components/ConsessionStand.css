@@ -11,6 +11,11 @@
     height: 200px;
 } */
 
+.consessionStand {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
 .consessionStand .ui.card > .image > img {
     padding: 2rem;
     background-color: white;
