@@ -25,6 +25,8 @@
             height: 370px;
             object-fit: cover;
             object-position: bottom;
+            border-bottom: 3px solid black;
+            box-shadow: 0px 3px 5px #fff;
         }
     }
 
@@ -53,17 +55,23 @@
         }
     }
 }
+
+/* .home .social-media:hover {
+    scale: 1.5;
+} */
+
 .home::after {
     content: "";
     position: absolute;
     left: calc((100vw - 100%) / 2 * -1);
     width: 100vw;
     height: 100vh;
-    background-color: #4f5459;
+    background-color: white;
     z-index: -1;
     top: 0;
 }
 .background_img {
     width: 200px;
     height: 200px;
+    border: black;
 }
