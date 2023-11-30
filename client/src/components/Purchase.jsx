@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 
@@ -26,6 +26,7 @@ export default function Purchase({ movies = [], setMovies }) {
     const selectedMovie = id
         ? movies.find((movie) => movie.id === Number(id))
         : {};
+    const naviate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -45,7 +46,8 @@ export default function Purchase({ movies = [], setMovies }) {
                     return res.json();
                 })
                 .then((data) => {
-                    console.log("data", data);
+                    console.log("data==>", data);
+                    naviate(`/purchased/${data.id}`);
                 });
         },
     });

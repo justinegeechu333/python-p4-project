@@ -7,6 +7,7 @@ import "./App.css";
 import Edit from "./Edit";
 import Purchase from "./Purchase";
 import Header from "./Header";
+import Purchased from "./Purchased";
 
 function App() {
     const [movies, setMovies] = useState([]);
@@ -43,6 +44,10 @@ function App() {
                     <Route
                         path="purchase/:id"
                         element={<Purchase movies={movies} />}
+                    />
+                    <Route
+                        path="purchased/:confirmationId"
+                        element={<Purchased />}
                     />
                 </Routes>
             </main>

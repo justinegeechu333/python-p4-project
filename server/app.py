@@ -40,7 +40,7 @@ class MoviesById(Resource):
             return make_response({'error': 'Movie not found'}, 404)
         db.session.delete(movie)
         db.session.commit()
-        return make_response({''}, 204)
+        return make_response('', 204)
     
     def patch(self, id):
         movie = Movie.query.get(id)
@@ -58,10 +58,10 @@ class MoviesById(Resource):
         db.session.add(new_customer)
         db.session.commit()
         
-        new_movie = Purchase(customer_id=new_customer.id, movie_id=id)
-        db.session.add(new_movie)
+        new_purchase = Purchase(customer_id=new_customer.id, movie_id=id)
+        db.session.add(new_purchase)
         db.session.commit()
-        return make_response(new_movie.to_dict(), 201)
+        return make_response(new_purchase.to_dict(), 201)
 
 api.add_resource(MoviesById, '/movies/<int:id>')
 
