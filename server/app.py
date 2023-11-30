@@ -22,7 +22,7 @@ class Movies(Resource):
         new_customer = Customer(name=params['name'], phonenumber= params['phonenumber'])
         db.session.add(new_customer)
         db.session.commit()
-        return make_response(jsonify(new_customer), 201)
+        return make_response(new_customer.to_dict(), 201)
     
 api.add_resource(Movies, '/movies')
 

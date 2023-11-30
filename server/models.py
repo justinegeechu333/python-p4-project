@@ -18,7 +18,7 @@ class Movie(db.Model, SerializerMixin):
     __tablename__ = 'movies'
     id = db.Column (db.Integer, primary_key = True)
     title = db.Column(db.String)
-    time = db.Column(db.String)
+    time = db.Column(db.Integer)
     details = db.Column(db.String)
     ticket_price = db.Column(db.Integer)
     image = db.Column(db.String)
