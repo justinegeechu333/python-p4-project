@@ -12,25 +12,31 @@ nav {
 }
 
 nav::after {
-    background: rgb(30 30 25);
+    background: rgb(22 31 52);
     content: "";
     position: absolute;
     inset-block: 0;
     inset-inline: -2000px;
     z-index: -1;
+    border-bottom: 3px solid white;
+    /* box-shadow: 0px 7px 5px #767676; */
 }
 
 nav {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
     > .gap {
         flex-grow: 1;
         display: flex;
         align-items: end;
         font-size: x-large;
         line-height: 2rem;
-        color: rgb(143, 20, 20);
+        color: brown;
         font-weight: bolder;
     }
     > ul {
@@ -40,17 +46,17 @@ nav {
         margin-bottom: 0;
     }
     & .active {
-        background: rgb(18 105 140);
-        color: white;
-        border-radius: 2rem;
+        background: white;
+        color: rgb(114, 131, 58);
+        border-radius: 4rem;
     }
 
     & a {
         padding-inline: 0.5rem;
         display: inline-block;
-        transition: all 0.5s linear;
+        transition: all 1s linear;
         font-size: small;
-        color: red;
+        color: brown;
     }
 }
 
@@ -63,5 +69,5 @@ nav {
 }
 
 .logo:hover {
-    border: 2px solid red;
+    border: 2px solid rgb(114, 131, 58);
 }
