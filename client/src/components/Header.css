@@ -39,6 +39,10 @@ nav {
         color: brown;
         font-weight: bolder;
     }
+    /* > .gap:hover {
+        border: rgb(22 31 52);
+        transform: scale(1.1); */
+    /* } */
     > ul {
         display: flex;
         flex-grow: 0;
@@ -70,4 +74,5 @@ nav {
 
 .logo:hover {
     border: 2px solid rgb(114, 131, 58);
+    transform: scale(1.3);
 }

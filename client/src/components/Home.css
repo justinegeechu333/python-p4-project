@@ -16,7 +16,7 @@
         padding-block: 4rem;
     }
     > .image-container {
-        height: 550px;
+        height: 350px;
         width: 100%;
         position: relative;
         > .ui.fluid.image {
@@ -76,4 +76,9 @@
     width: 200px;
     height: 200px;
     border: black;
+}
+
+.ui.cards > .card:hover {
+    border: 2px solid rgb(114, 131, 58);
+    transform: scale(1.3);
 }
