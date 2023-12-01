@@ -30,8 +30,6 @@ export default function Edit({ isNew = false, movies = [], setMovies }) {
         },
         validate,
         onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2));
-
             const url = isNew
                 ? "http://localhost:3000/movies"
                 : `http://localhost:3000/movies/${id}`;
@@ -77,9 +75,6 @@ export default function Edit({ isNew = false, movies = [], setMovies }) {
             },
             body: JSON.stringify({}),
         })
-            .then((res) => {
-                return res.json();
-            })
             .then((_) => {
                 setMovies((movies) => {
                     return movies.filter((movie) => movie.id !== Number(id));
