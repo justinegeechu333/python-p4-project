@@ -5,7 +5,7 @@ import { Grid, Image, Card, Header } from "semantic-ui-react";
 export function ConsessionStand() {
     return (
         <div className="consessionStand">
-            <Header size="huge">/ / / CONSESSION STAND / / /</Header>
+            <Header size="huge">/ / / CONCESSION STAND / / /</Header>
             <Grid columns={3} divided>
                 <Grid.Row>
                     <Grid.Column>
@@ -21,16 +21,16 @@ export function ConsessionStand() {
                         <Card
                             link
                             image="https://www.funmiles.net//static/upload/Nachos%20Cheese%20(1).jpg"
-                            header="Chessy Nachos"
+                            header="Cheesy Nachos"
                             meta="$9.50"
-                            description={"Chilly and Chessy"}
+                            description={"Chilli and Cheesy"}
                         />
                     </Grid.Column>
                     <Grid.Column>
                         <Card
                             link
                             image="https://m.media-amazon.com/images/I/91H1K4ZibAL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg"
-                            header="Assorated Candies"
+                            header="Assorted Candies"
                             meta="$6.50"
                             description={"May contain nuts"}
                         />
